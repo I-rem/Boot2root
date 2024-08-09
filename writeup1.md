@@ -17,3 +17,27 @@ nmap - Network exploration tool and security / port scanner
 ![image](https://github.com/user-attachments/assets/9192dcd2-6b76-41f9-b98e-e91de935619f)
 
 ![image](https://github.com/user-attachments/assets/432e65e0-151f-4ee0-a6dc-0deee264f9d2)
+
+`$ nikto -h http://192.168.56.103`
+
+```
+- Nikto v2.5.0
+---------------------------------------------------------------------------
++ Target IP:          192.168.56.103
++ Target Hostname:    192.168.56.103
++ Target Port:        80
++ Start Time:         2024-08-09 13:46:42 (GMT-4)
+---------------------------------------------------------------------------
++ Server: Apache/2.2.22 (Ubuntu)
++ /: Server may leak inodes via ETags, header found with file /, inode: 13650, size: 1025, mtime: Wed Oct  7 19:37:54 2015. See: http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1418
++ /: The anti-clickjacking X-Frame-Options header is not present. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
++ /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/
++ Apache/2.2.22 appears to be outdated (current is at least Apache/2.4.54). Apache 2.2.34 is the EOL for the 2.x branch.
++ OPTIONS: Allowed HTTP Methods: OPTIONS, GET, HEAD, POST .
++ /icons/README: Apache default file found. See: https://www.vntweb.co.uk/apache-restricting-access-to-iconsreadme/
++ /#wp-config.php#: #wp-config.php# file found. This file contains the credentials.
++ 8909 requests: 0 error(s) and 7 item(s) reported on remote host
++ End Time:           2024-08-09 13:47:02 (GMT-4) (20 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested
+```
