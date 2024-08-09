@@ -12,3 +12,6 @@ nmap - Network exploration tool and security / port scanner
 
 ![image](https://github.com/user-attachments/assets/246a5ac7-bcf6-4abe-aa4e-a8a1ae994a14)
 
+`$ nmap -sV 192.168.56.103`
+
+![image](https://github.com/user-attachments/assets/9192dcd2-6b76-41f9-b98e-e91de935619f)
