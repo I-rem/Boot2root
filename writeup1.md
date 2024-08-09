@@ -41,3 +41,34 @@ nmap - Network exploration tool and security / port scanner
 ---------------------------------------------------------------------------
 + 1 host(s) tested
 ```
+
+`$ dirb http://192.168.56.103`
+```
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Fri Aug  9 13:50:48 2024
+URL_BASE: http://192.168.56.103/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+                                                                           GENERATED WORDS: 4612
+
+---- Scanning URL: http://192.168.56.103/ ----
+                                                                           + http://192.168.56.103/cgi-bin/ (CODE:403|SIZE:290)                      
+                                                                           ==> DIRECTORY: http://192.168.56.103/fonts/
++ http://192.168.56.103/forum (CODE:403|SIZE:287)                         
++ http://192.168.56.103/index.html (CODE:200|SIZE:1025)                   
++ http://192.168.56.103/server-status (CODE:403|SIZE:295)                 
+                                                                          
+---- Entering directory: http://192.168.56.103/fonts/ ----
+                                                                           (!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+                                                                               
+-----------------
+END_TIME: Fri Aug  9 13:50:52 2024
+DOWNLOADED: 4612 - FOUND: 4
+```
