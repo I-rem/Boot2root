@@ -1,4 +1,4 @@
-`$ ifconfig`
+![image](https://github.com/user-attachments/assets/c9612de8-e6e5-44b9-b864-54eeb0410f6e)`$ ifconfig`
 
 ![image](https://github.com/user-attachments/assets/ca4fd3bb-b9af-426c-8050-4502cfd94372)
 
@@ -17,6 +17,8 @@ nmap - Network exploration tool and security / port scanner
 ![image](https://github.com/user-attachments/assets/9192dcd2-6b76-41f9-b98e-e91de935619f)
 
 ![image](https://github.com/user-attachments/assets/432e65e0-151f-4ee0-a6dc-0deee264f9d2)
+
+![image](https://github.com/user-attachments/assets/11e9b058-a8a1-445a-81de-36cde81760e4)
 
 `$ nikto -h http://192.168.56.103`
 
@@ -115,3 +117,18 @@ With the **non-recursive** option dirb will just list the first level directorie
 - /forum
 - /phpmyadmin
 - /webmail
+
+## /forum
+
+![image](https://github.com/user-attachments/assets/a3fb315d-23a3-4d81-8110-b9c7e3221582)
+
+![image](https://github.com/user-attachments/assets/daf8c625-7a02-4013-ba44-c58a47ab1196)
+
+`Oct 5 08:45:29 BornToSecHackMe sshd[7547]: Failed password for invalid user !q\]Ej?*5K5cy*AJ from 161.202.39.38 port 57764 ssh2`
+
+
+`Username: lmezard`
+
+`Password: !q\]Ej?*5K5cy*AJ`
+
+![image](https://github.com/user-attachments/assets/e2fa56be-582c-49f6-b0f2-442d6b336b5e)
