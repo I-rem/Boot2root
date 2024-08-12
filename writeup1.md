@@ -170,3 +170,15 @@ Best regards.
 ![image](https://github.com/user-attachments/assets/2e3ded56-1946-4311-8a51-3397aea3e58f)
 
 `ed0fd64f25f3bd3a54f8d272ba93b6e76ce7f3d0516d551c28`
+
+So, we were able to get the password hash for the admin. But I was unable to crack the hash. The old friend `john` or `crackstation` couldn't help. It would have been good to know more about the kind of hashing alghoritm they used. Let's see if we can figure that out.
+
+We see that the forum is powered by [mylittleforum](https://mylittleforum.net/) which is a simple PHP and MySQL based internet forum that displays the messages in classical threaded view (tree structure). It is Open Source licensed under the GNU General Public License.
+
+![image](https://github.com/user-attachments/assets/f25df078-8aa2-4ca9-8516-6f57e0b809f9)
+
+We can navigate to the source code from here:
+
+![image](https://github.com/user-attachments/assets/a277dca3-a31b-49dc-b5dc-3b260716da97)
+
+![image](https://github.com/user-attachments/assets/28fe96ca-0d14-4bac-a89a-283e0f8cf22b)
