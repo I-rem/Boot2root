@@ -175,6 +175,9 @@ So, we were able to get the password hash for the admin. But I was unable to cra
 
 We see that the forum is powered by [mylittleforum](https://mylittleforum.net/) which is a simple PHP and MySQL based internet forum that displays the messages in classical threaded view (tree structure). It is Open Source licensed under the GNU General Public License.
 
+
+https://gobiasinfosec.blog/2019/12/24/file-upload-attacks-php-reverse-shell/
+
 ![image](https://github.com/user-attachments/assets/f25df078-8aa2-4ca9-8516-6f57e0b809f9)
 
 We can navigate to the source code from here:
