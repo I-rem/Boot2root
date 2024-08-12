@@ -42,6 +42,8 @@ nmap - Network exploration tool and security / port scanner
 + 1 host(s) tested
 ```
 
+# Directory Enumeration
+
 `$ dirb http://192.168.56.103`
 ```
 -----------------
@@ -72,3 +74,44 @@ WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
 END_TIME: Fri Aug  9 13:50:52 2024
 DOWNLOADED: 4612 - FOUND: 4
 ```
+I assumed the server would be running on http but nothing substantial came out of this search so I was mistaken.
+
+`dirb https://192.168.56.103/ -o dirb.txt`
+
+![image](https://github.com/user-attachments/assets/3931c147-cee5-499a-9fb9-b2c15577fcc5)
+
+Too many results, it will be hard to effectively go through it all but I will save them in a seperate file just in case. 
+
+`$ dirb https://192.168.56.103/ -r`         
+
+```
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Mon Aug 12 04:35:41 2024
+URL_BASE: https://192.168.56.103/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+OPTION: Not Recursive
+
+-----------------
+
+                                                                            GENERATED WORDS: 4612
+
+---- Scanning URL: https://192.168.56.103/ ----
+                                                                            + https://192.168.56.103/cgi-bin/ (CODE:403|SIZE:291)                      
+                                                                            ==> DIRECTORY: https://192.168.56.103/forum/
+                                                                            ==> DIRECTORY: https://192.168.56.103/phpmyadmin/
++ https://192.168.56.103/server-status (CODE:403|SIZE:296)                 
+                                                                            ==> DIRECTORY: https://192.168.56.103/webmail/
+                                                                               
+-----------------
+END_TIME: Mon Aug 12 04:35:45 2024
+DOWNLOADED: 4612 - FOUND: 2
+```
+
+With the **non-recursive** option dirb will just list the first level directories of the main URL that was specified in the command. We don't have the permission to access 2 of these directories as indicated by the **403 status code**. But we 3 new directories ready for inspection:
+- /forum
+- /phpmyadmin
+- /webmail
