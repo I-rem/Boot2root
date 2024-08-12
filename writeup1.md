@@ -132,3 +132,33 @@ With the **non-recursive** option dirb will just list the first level directorie
 `Password: !q\]Ej?*5K5cy*AJ`
 
 ![image](https://github.com/user-attachments/assets/e2fa56be-582c-49f6-b0f2-442d6b336b5e)
+
+![image](https://github.com/user-attachments/assets/6e796a36-c732-4ed0-89c6-1efe063a89b9)
+
+`laurie@borntosec.net`
+
+## /webmail
+
+![image](https://github.com/user-attachments/assets/8ea8e0e3-ab2c-48fa-9b5e-1b8615bc9232)
+
+We can login with the previous credentials.
+
+![image](https://github.com/user-attachments/assets/7889eec2-fc09-4af0-ac34-f88e129f5de3)
+
+```
+Subject:   	DB Access
+From:   	qudevide@mail.borntosec.net
+Date:   	Thu, October 8, 2015 11:25 pm
+To:   	laurie@borntosec.net
+Priority:   	Normal
+Options:   	View Full Header |  View Printable Version  | Download this as a file
+
+Hey Laurie,
+
+You cant connect to the databases now. Use root/Fg-'kKXBj87E:aJ$
+
+Best regards.
+```
+## /phpmyadmin
+
+![image](https://github.com/user-attachments/assets/be7db68a-8a54-4f1d-aaaa-9d180283e56c)
