@@ -162,3 +162,11 @@ Best regards.
 ## /phpmyadmin
 
 ![image](https://github.com/user-attachments/assets/be7db68a-8a54-4f1d-aaaa-9d180283e56c)
+
+![image](https://github.com/user-attachments/assets/a2ad9a22-869f-4af9-9d0d-fd54e089b8b8)
+
+![image](https://github.com/user-attachments/assets/a0a54a24-f5fe-48bd-bda8-05af5acf86dc)
+
+![image](https://github.com/user-attachments/assets/2e3ded56-1946-4311-8a51-3397aea3e58f)
+
+`ed0fd64f25f3bd3a54f8d272ba93b6e76ce7f3d0516d551c28`
