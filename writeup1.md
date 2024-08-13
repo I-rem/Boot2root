@@ -175,9 +175,6 @@ So, we were able to get the password hash for the admin. But I was unable to cra
 
 We see that the forum is powered by [mylittleforum](https://mylittleforum.net/) which is a simple PHP and MySQL based internet forum that displays the messages in classical threaded view (tree structure). It is Open Source licensed under the GNU General Public License.
 
-
-https://gobiasinfosec.blog/2019/12/24/file-upload-attacks-php-reverse-shell/
-
 ![image](https://github.com/user-attachments/assets/f25df078-8aa2-4ca9-8516-6f57e0b809f9)
 
 We can navigate to the source code from here:
@@ -185,3 +182,47 @@ We can navigate to the source code from here:
 ![image](https://github.com/user-attachments/assets/a277dca3-a31b-49dc-b5dc-3b260716da97)
 
 ![image](https://github.com/user-attachments/assets/28fe96ca-0d14-4bac-a89a-283e0f8cf22b)
+
+![image](https://github.com/user-attachments/assets/24345c76-2b79-45c0-98e5-360cd8fff505)
+
+```
+function generate_pw_hash($pw) {
+	$salt = random_string(10, '0123456789abcdef');
+	$salted_hash = sha1($pw.$salt);
+	$hash_with_salt = $salted_hash.$salt;
+	return $hash_with_salt;
+}
+```
+
+The hash is composed of a salted SHA-1 hash. In the light of this information I was still unable to crack the admin's password hash. So I decided to just generate my own hash. Here is a simple script:
+```
+<?php
+function generate_pw_hash($pw) {
+    $salt = '5f4dcc3b5d';  // 10 random chars for salt
+    $salted_hash = sha1($pw . $salt);
+    $hash_with_salt = $salted_hash . $salt;
+    return $hash_with_salt;
+}
+
+$password = '123';
+$new_hash = generate_pw_hash($password);
+echo $new_hash;
+?>
+```
+
+`$ php ./generate_hash.php` outputs `15f32d5a4abd9ae09034e5b2b4e6e29e8b8592525f4dcc3b5d`
+
+After replacing this with the admin's user_pw we will be able to login to the account with the password `123`
+
+![image](https://github.com/user-attachments/assets/cc14dcdc-484a-47ab-a932-0c8ff76f2e10)
+
+![image](https://github.com/user-attachments/assets/d59dfe2a-5c9a-4bb6-859d-f5ef57eb836d)
+
+We are in. However this was absolutely useless. I changed various forum settings like eabling all users to upload images and attempted to inject a payload via image upload. It didn't work.
+
+![image](https://github.com/user-attachments/assets/2bfd32d3-2646-472e-9be2-045545bc989d)
+
+So sad.
+
+## Attempt 2
+ 
