@@ -218,11 +218,17 @@ After replacing this with the admin's user_pw we will be able to login to the ac
 
 ![image](https://github.com/user-attachments/assets/d59dfe2a-5c9a-4bb6-859d-f5ef57eb836d)
 
-We are in. However this was absolutely useless. I changed various forum settings like eabling all users to upload images and attempted to inject a payload via image upload. It didn't work.
+We are in. However this was absolutely useless. I changed various forum settings like enabling all users to upload images and attempted to inject a payload via image upload. It didn't work. 
 
 ![image](https://github.com/user-attachments/assets/2bfd32d3-2646-472e-9be2-045545bc989d)
 
-So sad.
+Some links if you want to try it out yourself:
+
+https://gobiasinfosec.blog/2019/12/24/file-upload-attacks-php-reverse-shell/
+
+https://infosecwriteups.com/bypassed-and-uploaded-a-sweet-reverse-shell-d15e1bbf5836
+
+Very very sad.
 
 ## Attempt 2
  
