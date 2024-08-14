@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/c9612de8-e6e5-44b9-b864-54eeb0410f6e)`$ ifconfig`
+`$ ifconfig`
 
 ![image](https://github.com/user-attachments/assets/ca4fd3bb-b9af-426c-8050-4502cfd94372)
 
