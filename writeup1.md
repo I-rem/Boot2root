@@ -120,6 +120,23 @@ With the **non-recursive** option dirb will just list the first level directorie
 
 ## /forum
 
+`dirb https://192.168.56.103/forum`
+```
+---- Scanning URL: https://192.168.56.103/forum/ ----
++ https://192.168.56.103/forum/backup (CODE:403|SIZE:295)                                 
++ https://192.168.56.103/forum/config (CODE:403|SIZE:295)                                 
+==> DIRECTORY: https://192.168.56.103/forum/images/                                       
+==> DIRECTORY: https://192.168.56.103/forum/includes/                                     
++ https://192.168.56.103/forum/index (CODE:200|SIZE:4935)                                 
++ https://192.168.56.103/forum/index.php (CODE:200|SIZE:4935)                             
+==> DIRECTORY: https://192.168.56.103/forum/js/                                           
+==> DIRECTORY: https://192.168.56.103/forum/lang/                                         
+==> DIRECTORY: https://192.168.56.103/forum/modules/                                      
+==> DIRECTORY: https://192.168.56.103/forum/templates_c/                                  
+==> DIRECTORY: https://192.168.56.103/forum/themes/                                       
+==> DIRECTORY: https://192.168.56.103/forum/update/
+
+```
 ![image](https://github.com/user-attachments/assets/a3fb315d-23a3-4d81-8110-b9c7e3221582)
 
 ![image](https://github.com/user-attachments/assets/daf8c625-7a02-4013-ba44-c58a47ab1196)
@@ -138,6 +155,22 @@ With the **non-recursive** option dirb will just list the first level directorie
 `laurie@borntosec.net`
 
 ## /webmail
+
+`dirb https://192.168.56.103/webmail`
+
+```
++ https://192.168.56.103/webmail/class (CODE:403|SIZE:296)                                
+==> DIRECTORY: https://192.168.56.103/webmail/config/                                     
++ https://192.168.56.103/webmail/functions (CODE:403|SIZE:300)                            
++ https://192.168.56.103/webmail/help (CODE:403|SIZE:295)                                 
+==> DIRECTORY: https://192.168.56.103/webmail/images/                                     
++ https://192.168.56.103/webmail/include (CODE:403|SIZE:298)                              
++ https://192.168.56.103/webmail/index.php (CODE:302|SIZE:0)                              
++ https://192.168.56.103/webmail/locale (CODE:403|SIZE:297)                               
+==> DIRECTORY: https://192.168.56.103/webmail/plugins/                                    
+==> DIRECTORY: https://192.168.56.103/webmail/src/                                        
+==> DIRECTORY: https://192.168.56.103/webmail/themes/
+```
 
 ![image](https://github.com/user-attachments/assets/8ea8e0e3-ab2c-48fa-9b5e-1b8615bc9232)
 
@@ -160,6 +193,17 @@ You cant connect to the databases now. Use root/Fg-'kKXBj87E:aJ$
 Best regards.
 ```
 ## /phpmyadmin
+
+```
++ https://192.168.56.103/phpmyadmin/favicon.ico (CODE:200|SIZE:18902)                     
++ https://192.168.56.103/phpmyadmin/index.php (CODE:200|SIZE:7540)                        
+==> DIRECTORY: https://192.168.56.103/phpmyadmin/js/                                      
++ https://192.168.56.103/phpmyadmin/libraries (CODE:403|SIZE:303)                         
+==> DIRECTORY: https://192.168.56.103/phpmyadmin/locale/                                  
++ https://192.168.56.103/phpmyadmin/phpinfo.php (CODE:200|SIZE:7540)                      
++ https://192.168.56.103/phpmyadmin/setup (CODE:401|SIZE:482)                             
+==> DIRECTORY: https://192.168.56.103/phpmyadmin/themes/ 
+```
 
 ![image](https://github.com/user-attachments/assets/be7db68a-8a54-4f1d-aaaa-9d180283e56c)
 
