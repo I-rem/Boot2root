@@ -16,6 +16,16 @@ nmap - Network exploration tool and security / port scanner
 
 ![image](https://github.com/user-attachments/assets/9192dcd2-6b76-41f9-b98e-e91de935619f)
 
+```
+PORT    STATE SERVICE  VERSION
+21/tcp  open  ftp      vsftpd 2.0.8 or later
+22/tcp  open  ssh      OpenSSH 5.9p1 Debian 5ubuntu1.7 (Ubuntu Linux; protocol 2.0)
+80/tcp  open  http     Apache httpd 2.2.22 ((Ubuntu))
+143/tcp open  imap     Dovecot imapd
+443/tcp open  ssl/http Apache httpd 2.2.22
+993/tcp open  ssl/imap Dovecot imapd
+
+```
 ![image](https://github.com/user-attachments/assets/432e65e0-151f-4ee0-a6dc-0deee264f9d2)
 
 ![image](https://github.com/user-attachments/assets/11e9b058-a8a1-445a-81de-36cde81760e4)
