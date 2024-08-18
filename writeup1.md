@@ -385,3 +385,12 @@ So is ftp,
 Great, let's look around:
 
 ![image](https://github.com/user-attachments/assets/4c8fef48-2401-4737-99a1-d52cf523faf0)
+
+![image](https://github.com/user-attachments/assets/501a384a-1c30-4ecf-9ab9-e1cd92c4862b)
+
+`$ cat README`
+`Complete this little challenge and use the result as password for user 'laurie' to login in ssh`
+
+`$ open fun`
+
+![image](https://github.com/user-attachments/assets/91d4d7b1-5e12-496c-ab74-055f0d870a2e)
