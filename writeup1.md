@@ -219,6 +219,32 @@ Best regards.
 
 ![image](https://github.com/user-attachments/assets/a2ad9a22-869f-4af9-9d0d-fd54e089b8b8)
 
+```
+MySQL
+
+    Server: Localhost via UNIX socket
+    Server version: 5.5.44-0ubuntu0.12.04.1
+    Protocol version: 10
+    User: root@localhost
+    MySQL charset: UTF-8 Unicode (utf8)
+
+
+```
+
+```
+Web server
+
+    Apache/2.2.22 (Ubuntu)
+    MySQL client version: 5.5.44
+    PHP extension: mysqli 
+```
+
+```
+phpMyAdmin
+
+    Version information: 3.4.10.1deb1
+```
+
 ![image](https://github.com/user-attachments/assets/a0a54a24-f5fe-48bd-bda8-05af5acf86dc)
 
 ![image](https://github.com/user-attachments/assets/2e3ded56-1946-4311-8a51-3397aea3e58f)
