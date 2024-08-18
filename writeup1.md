@@ -319,4 +319,6 @@ Very very sad.
 
  Our goal will be to upload this to the victim site and execute something along the lines of `example.com/upload/test.php?c=whoami`
 
- 
+ We have root acess to the database and we can run SQL queries on the server. The plan is to upload a webshell in the webroot, [see](https://www.infosecinstitute.com/resources/hacking/anatomy-of-an-attack-gaining-reverse-shell-from-sql-injection/).
+
+The [default document root](https://askubuntu.com/questions/683953/where-is-apache-web-root-directory-on-ubuntu) for Apache is **/var/www/** (before Ubuntu 14.04) or /var/www/html/ (Ubuntu 14.04 and later)
