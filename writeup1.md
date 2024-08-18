@@ -364,9 +364,24 @@ We only have access to the LOOKATME directory
 
 `https://192.168.56.103/forum/templates_c/cmd.php?c=cat%20/home/LOOKATME/password`
 
-We get another set of credentials for the user lmezard: `lmezard:G!@M6f4Eatau{sF"` We already have lmezard's account for SquirrelMail and the forum. Attempting to login to phpMyAdmin was no use either(Which was expected as it was mentioned in the mails that lmezard should be using the root account from now on). 
-
-
 ![image](https://github.com/user-attachments/assets/03d0eff6-7cc2-4c1a-9766-5fc0d6350c2e)
 
-`lmezard:G!@M6f4Eatau{sF"`
+We get another set of credentials for the user lmezard: `lmezard:G!@M6f4Eatau{sF"` We already have lmezard's account for SquirrelMail and the forum. Attempting to login to phpMyAdmin was no use either(Which was expected as it was mentioned in the mails that lmezard should be using the root account from now on). 
+
+Well, ssh port is open
+
+`$ ssh lmezard@192.168.56.103`
+
+![image](https://github.com/user-attachments/assets/6dcb392a-8829-4047-b777-fb8ea6983006)
+
+:(
+
+So is ftp,
+
+`$ ftp 192.168.56.103`
+
+![image](https://github.com/user-attachments/assets/26234c75-61d0-4d89-bdaa-21e5018bc7f7)
+
+Great, let's look around:
+
+![image](https://github.com/user-attachments/assets/4c8fef48-2401-4737-99a1-d52cf523faf0)
