@@ -415,3 +415,52 @@ There are 750 .pcap files and wireshark is unable to open them. When we read the
 ![image](https://github.com/user-attachments/assets/4f1a0a69-6220-41ca-a76f-1de4c96fb7ab)
 
 _______wnage
+
+```
+$ for file in *; do
+  number=$(grep -oP '^//file\K\d+' "$file" | head -n 1)
+  [ -n "$number" ] && [ ! -e "$number" ] && mv "$file" "$number"
+done
+
+```
+
+![image](https://github.com/user-attachments/assets/4ec48f1f-2a15-46fa-86b9-9116ab1f978f)
+
+```
+#!/bin/sh
+file=$1
+echo $file
+while ! grep -q "return" "$file" || [ "$file" = "750" ]; do
+        file=$(grep -oP '^//file\K\d+' $file)
+        echo $file
+done
+
+echo $file
+grep return $file
+```
+
+![image](https://github.com/user-attachments/assets/fc694006-c9d4-41d0-bd00-cb42c01d3aa7)
+
+```
+counter=1
+while [ $counter -le 750 ]; do
+  cat "$counter"  # Perform the action on the file
+  counter=$((counter + 1))  # Increment the counter
+done | grep return
+//file5 return 'I';
+//file37        return 'h';
+//file56        return 'e';
+//file115       return 'a';
+//file368       return 'r';
+//file521       return 't';
+//file736       return 'p';
+        return 'w';
+        return 'n';
+        return 'a';
+        return 'g';
+        return 'e';
+```
+
+![image](https://github.com/user-attachments/assets/bdbf9d14-0d89-43f4-ac05-a7080d0a6f39)
+
+
