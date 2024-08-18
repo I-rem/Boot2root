@@ -342,7 +342,7 @@ Now let's try supplying a system command as a parameter: `https://192.168.56.103
 
 ![image](https://github.com/user-attachments/assets/fe8c425d-4bf4-4f84-a23a-fade6151838a)
 
-Now we get the results of both select 1 query and the whoami command seperated into different columns. It appears that the current user is [`www-data`](https://askubuntu.com/questions/873839/what-is-the-www-data-user)
+We get the results of both select 1 query and the whoami command seperated into different columns. It appears that the current user is [`www-data`](https://askubuntu.com/questions/873839/what-is-the-www-data-user)
 
 _The web server has to be run under a specific user._
 
@@ -358,9 +358,14 @@ Interesting
 
 `https://192.168.56.103/forum/templates_c/cmd.php?c=ls%20/home`
 
+We only have access to the LOOKATME directory
+
 ![image](https://github.com/user-attachments/assets/2a66352d-89ed-4bb0-9155-90495e68741b)
 
 `https://192.168.56.103/forum/templates_c/cmd.php?c=cat%20/home/LOOKATME/password`
+
+We get another set of credentials for the user lmezard: `lmezard:G!@M6f4Eatau{sF"` We already have lmezard's account for SquirrelMail and the forum. Attempting to login to phpMyAdmin was no use either(Which was expected as it was mentioned in the mails that lmezard should be using the root account from now on). 
+
 
 ![image](https://github.com/user-attachments/assets/03d0eff6-7cc2-4c1a-9766-5fc0d6350c2e)
 
