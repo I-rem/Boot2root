@@ -389,8 +389,27 @@ Great, let's look around:
 ![image](https://github.com/user-attachments/assets/501a384a-1c30-4ecf-9ab9-e1cd92c4862b)
 
 `$ cat README`
+
 `Complete this little challenge and use the result as password for user 'laurie' to login in ssh`
 
 `$ open fun`
 
 ![image](https://github.com/user-attachments/assets/91d4d7b1-5e12-496c-ab74-055f0d870a2e)
+
+There are 750 .pcap files and wireshark is unable to open them. When we read the contents we see text that is not expected from a pcap file.
+
+`$ cat * | less`
+
+![image](https://github.com/user-attachments/assets/dfabc800-fa4b-4185-a9e8-f14997fe19f4)
+
+`$ cat * | grep printf`
+
+![image](https://github.com/user-attachments/assets/a571e26d-c9b9-40fb-a729-a5b1dfecfb3c)
+
+![image](https://github.com/user-attachments/assets/1b6d13e6-e3f1-4a2a-9cca-8e5817413df2)
+
+`$ count=1; for file in *; do mv "$file" "file${count}"; count=$((count + 1)); done`
+
+![image](https://github.com/user-attachments/assets/4f1a0a69-6220-41ca-a76f-1de4c96fb7ab)
+
+_______wnage
