@@ -323,7 +323,7 @@ Very very sad.
 
 The [default document root](https://askubuntu.com/questions/683953/where-is-apache-web-root-directory-on-ubuntu) for Apache is **/var/www/** (before Ubuntu 14.04) or /var/www/html/ (Ubuntu 14.04 and later)
 
-We can use the into outfile command to write to a file. Neat [tutorial](https://null-byte.wonderhowto.com/how-to/use-sql-injection-run-os-commands-get-shell-0191405/)
+We can use the into outfile command write the output of the query into a file at the specified location on the server. Neat [tutorial](https://null-byte.wonderhowto.com/how-to/use-sql-injection-run-os-commands-get-shell-0191405/) that I will be following.
 
 Going back to our dirb results, I one by one tried every subdirectory that returned status code 200.
 `forum/templates_c` turned out to be the only one where we have write right.
@@ -336,3 +336,16 @@ Now if we visit `https://192.168.56.103/forum/templates_c/cmd.php`
 
 ![image](https://github.com/user-attachments/assets/2df4be2f-d5e9-4594-bf8a-852a2d1093d5)
 
+We can see that our file exists and is returning the output for select 1
+
+Now let's try supplying a system command as a parameter: `https://192.168.56.103/forum/templates_c/cmd.php?c=whoami`
+
+![image](https://github.com/user-attachments/assets/fe8c425d-4bf4-4f84-a23a-fade6151838a)
+
+Now we get the results of both select 1 query and the whoami command seperated into different columns. It appears that the current user is [`www-data`](https://askubuntu.com/questions/873839/what-is-the-www-data-user)
+
+_The web server has to be run under a specific user. That user must exist._
+
+_If it were run under root, then all the files would have to be accessible by root and the user would need to be root to access the files. With root being the owner, a compromised web server would have access to your entire system._
+
+_By default the configuration of the owner is www-data in the Ubuntu configuration of Apache2._
