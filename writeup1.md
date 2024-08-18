@@ -408,7 +408,9 @@ There are 750 .pcap files and wireshark is unable to open them. When we read the
 
 ![image](https://github.com/user-attachments/assets/1b6d13e6-e3f1-4a2a-9cca-8e5817413df2)
 
-`$ count=1; for file in *; do mv "$file" "file${count}"; count=$((count + 1)); done`
+`$ ls | sort > files`
+
+`$ count=1; for file in `cat files`; do mv "$file" "file${count}"; count=$((count + 1)); done`
 
 ![image](https://github.com/user-attachments/assets/4f1a0a69-6220-41ca-a76f-1de4c96fb7ab)
 
