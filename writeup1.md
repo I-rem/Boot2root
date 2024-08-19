@@ -433,3 +433,12 @@ done
 
 `Iheartpwnage`
 
+`$ echo -n Iheartpwnage > pass`
+
+`$ sha256sum pass`
+
+`330b845f32185747e4f8ca15d40ca59796035c89ea809fb5d30f4da83ecf45a4`
+
+![image](https://github.com/user-attachments/assets/04ed4899-8016-4bae-80f8-e41b69966afa)
+
+
