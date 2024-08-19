@@ -862,9 +862,15 @@ So this function takes 6 numbers as input. If any of those numbers is larger tha
 
 Now let's see what these nodes are supposed to be.
 
-![image](https://github.com/user-attachments/assets/69fe9386-3262-43b3-ae05-302847e48717)
+![image](https://github.com/user-attachments/assets/ea020c6c-162d-494b-bb24-1caa955c99ce)
 
-so, `node4=E5=229`
+so,
+
+`node6=B0=176`
+
+`node5=D4=212`
+
+`node4=E5=229`
 
 `node3=2D=45`
 
