@@ -746,7 +746,7 @@ This seems to be a fibonacci sequence: 1, 2, 3, 5, 8, 13, 21, 34, 55
 
 Phase 5,
 
-``
+```
 int __cdecl phase_5(int a1)
 {
   int i; // edx
@@ -770,10 +770,32 @@ Hey, "giants" makes another appearance! The result should be equal to giants but
 
 array_123 = {i s r v e a w h o b p n u t f g}
 
-Every letter in our string gets remapped into one of the letters in array_123.
+Every letter in our string gets remapped into one of the letters in array_123 via an AND operation.
 
+We can write a small script to figure out how it works
 
 ```
+#include <stdio.h>
+
+int main()
+{
+    char array_123[] = "isrveawhobpnutfg";
+    for (int i = 0; i < 26; i++)
+    {
+        printf("%c:%c ", 97 + i, array_123[(97 + i) & 0xf]);
+    }
+    
+}
+```
+Here is the result: `a:s b:r c:v d:e **e:a** f:w g:h h:o i:b j:p **k:n** l:u **m:t** n:f **o:g** **p:i** **q:s** r:r s:v t:e u:a v:w w:h x:o y:b z:p`
+
+```
+So in order to get gian our input should be: `opekmq`
+
+```
+
+```
+
 int __cdecl phase_6(int a1)
 {
   int i; // edi
