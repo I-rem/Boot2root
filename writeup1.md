@@ -508,11 +508,11 @@ For the stage one `Public speaking is very easy.` works!
 
 ![image](https://github.com/user-attachments/assets/87cde4f2-6dc9-48b0-9f4b-4f9f3c9e3646)
 
-Unfortunately giant or austinpowers do not work for the next stage and I can't find anything else among the strings. We will need to go a step further.
+Unfortunately "giant" or "austinpowers" do not work for the next stage and I can't find anything else among the strings. We will need to go a step further.
 
-`objdump bom > bomb.asm`
+I disassemble the binary: `$ objdump bomb > bomb.asm`
 
-https://www.codeconvert.ai/assembly-to-c-converter
+We can see the assembly code for various functions.
 
 ```
 08048b48 <phase_2>:
@@ -551,38 +551,6 @@ https://www.codeconvert.ai/assembly-to-c-converter
 ```
 
 ```
-#include <stdio.h>
-#include <stdbool.h>
-
-void read_six_numbers(int *array);
-
-void explode_bomb(void) {
-    printf("Boom! The bomb exploded.\n");
-}
-
-void phase_2(int *array) {
-    int numbers[6];
-    int i;
-
-    read_six_numbers(numbers);
-
-    if (numbers[0] != 1) {
-        explode_bomb();
-        return;
-    }
-
-    for (i = 1; i < 6; i++) {
-        // Check if numbers[i] == i * numbers[i-1]
-        if (numbers[i] != i * numbers[i - 1]) {
-            explode_bomb();
-            return;
-        }
-    }
-}
-```
-
-```
-
 08048fd8 <read_six_numbers>:
  8048fd8:	55                   	push   %ebp
  8048fd9:	89 e5                	mov    %esp,%ebp
@@ -613,23 +581,52 @@ void phase_2(int *array) {
  8049015:	8d 76 00             	lea    0x0(%esi),%esi
 
 ```
-```
-#include <stdio.h>
-#include <stdlib.h>
+I essentialy used [CodeCovnert](https://www.codeconvert.ai/assembly-to-c-converter) to convert Assembly into C. It was useful to get the overall idea of the code. But this tool is an AI language model so it was not 100% accurate and I wasn't able to determine the right password this way.
 
-void explode_bomb();
+So I opted for using `IDA Freeware 8.4`
 
-void read_six_numbers(int *numbers) {
-    int result;
-    result = sscanf((char *)numbers, "%d %d %d %d %d %d", 
-                    &numbers[0], &numbers[1], &numbers[2], 
-                    &numbers[3], &numbers[4], &numbers[5]);
-    
-    if (result <= 5) {
-        explode_bomb();
-    }
-}
-```
+After dragging the bomb binary into the program you are greeted with this beautiful interface.
 
 ![image](https://github.com/user-attachments/assets/ed559a83-2462-469b-9c36-716cf6080b64)
 
+Let's select the Phase_2 function
+
+![image](https://github.com/user-attachments/assets/6abb6888-9f42-4c86-b418-e44523060e92)
+
+Then we can click on `F5` to generate pseudocode.
+
+![image](https://github.com/user-attachments/assets/74ad43f9-fd22-4a0d-bb54-b713a502a5eb)
+
+```
+int __cdecl phase_2(int a1)
+{
+  int i; // ebx
+  int result; // eax
+  int v3[6]; // [esp+10h] [ebp-18h] BYREF
+
+  read_six_numbers(a1, v3);
+  if ( v3[0] != 1 )
+    explode_bomb();
+  for ( i = 1; i <= 5; ++i )
+  {
+    result = v3[i - 1] * (i + 1);
+    if ( v3[i] != result )
+      result = explode_bomb();
+  }
+  return result;
+}
+```
+
+We now know what kind of an input the program is expecting. We require 6 numbers that follows a certain pattern.
+
+[0] = 1
+
+[1] = 1 * 2 = 2
+
+[2] = 2 * 3 = 6
+
+[3] = 6 * 4 = 24
+
+[4] = 24 * 5 = 120
+
+[5] = 120 * 6 = 720
