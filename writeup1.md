@@ -789,8 +789,8 @@ int main()
 ```
 Here is the result: `a:s b:r c:v d:e **e:a** f:w g:h h:o i:b j:p **k:n** l:u **m:t** n:f **o:g** **p:i** **q:s** r:r s:v t:e u:a v:w w:h x:o y:b z:p`
 
-```
-So in order to get gian our input should be: `opekmq`
+
+So in order to get giants our input should be: `opekmq`
 
 ![image](https://github.com/user-attachments/assets/6107303b-5ab0-4715-bc6e-864d2d474028)
 
@@ -799,7 +799,6 @@ Hurray!
 Last phase,
 
 ```
-
 int __cdecl phase_6(int a1)
 {
   int i; // edi
@@ -865,10 +864,10 @@ Now let's see what these nodes are supposed to be.
 
 ![image](https://github.com/user-attachments/assets/69fe9386-3262-43b3-ae05-302847e48717)
 
-so, node4=E5=229
+so, `node4=E5=229`
 
-node3=2D=45
+`node3=2D=45`
 
-node2=D5=213
+`node2=D5=213`
 
-node1=FD=253
+`node1=FD=253`
