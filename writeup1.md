@@ -887,3 +887,12 @@ Each number in our array is turned into pointers to these. A linked list is form
 The final list needs to be in descending order or we explode.
 
 Then the final value should be `4 2 6 3 1 5`
+
+![image](https://github.com/user-attachments/assets/d2d5ac9c-215e-448b-a0f0-5a639f47ea68)
+
+We have defused the bomb! We can login as thor with ssh now.
+
+`$ ssh thor@192.168.56.103`
+
+Password: `Publicspeakingisveryeasy.126241207201b2149opekmq426315`
+
