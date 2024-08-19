@@ -441,4 +441,19 @@ done
 
 ![image](https://github.com/user-attachments/assets/04ed4899-8016-4bae-80f8-e41b69966afa)
 
+![image](https://github.com/user-attachments/assets/5d8f6816-63fe-410a-ace6-0724f887d93c)
 
+```
+Diffuse this bomb!
+When you have all the password use it as "thor" user with ssh.
+
+HINT:
+P
+ 2
+ b
+
+o
+4
+
+NO SPACE IN THE PASSWORD (password is case sensitive).
+```
