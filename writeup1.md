@@ -613,3 +613,6 @@ void read_six_numbers(int *numbers) {
     }
 }
 ```
+
+![image](https://github.com/user-attachments/assets/ed559a83-2462-469b-9c36-716cf6080b64)
+
