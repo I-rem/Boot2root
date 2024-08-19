@@ -877,3 +877,5 @@ so,
 `node2=D5=213`
 
 `node1=FD=253`
+
+The final list needs to be in descending order or we explode.
