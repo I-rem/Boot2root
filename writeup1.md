@@ -766,6 +766,10 @@ int __cdecl phase_5(int a1)
 ```
 Hey, "giants" makes another appearance! The result should be equal to giants but a set operations is performed on the string we pass which messes it up.
 
+![image](https://github.com/user-attachments/assets/56948355-73bb-43e8-b044-501320652403)
+
+array_123 = {i s r v e a w h o b p}
+
 ```
 int __cdecl phase_6(int a1)
 {
