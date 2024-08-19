@@ -466,3 +466,27 @@ only one life good luck !! Have a nice day!
 ```
 
 `$ scp laurie@192.168.56.103:~/bomb .`
+
+`$ strings bomb`
+
+```
+Public speaking is very easy.
+%d %c %d
+giants
+Wow! You've defused the secret stage!
+
+nobody
+defused
+exploded
+
+bomb-header:%s:%d:%s:%s:%d
+bomb-string:%s:%d:%s:%d:%s
+bomb
+/usr/sbin/sendmail -bm
+%s %s@%s
+
+austinpowers
+Curses, you've found the secret phase!
+But finding it and solving it are quite different...
+Congratulations! You've defused the bomb!
+```
