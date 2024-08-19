@@ -469,6 +469,8 @@ only one life good luck !! Have a nice day!
 
 `$ strings bomb`
 
+![image](https://github.com/user-attachments/assets/6405eb3d-7d76-4e8a-a6c5-1c7f95bfb0a3)
+
 ```
 Public speaking is very easy.
 %d %c %d
