@@ -495,6 +495,73 @@ Congratulations! You've defused the bomb!
 
 `objdump bom > bomb.asm`
 
+https://www.codeconvert.ai/assembly-to-c-converter
+
+```
+08048b48 <phase_2>:
+ 8048b48:	55                   	push   %ebp
+ 8048b49:	89 e5                	mov    %esp,%ebp
+ 8048b4b:	83 ec 20             	sub    $0x20,%esp
+ 8048b4e:	56                   	push   %esi
+ 8048b4f:	53                   	push   %ebx
+ 8048b50:	8b 55 08             	mov    0x8(%ebp),%edx
+ 8048b53:	83 c4 f8             	add    $0xfffffff8,%esp
+ 8048b56:	8d 45 e8             	lea    -0x18(%ebp),%eax
+ 8048b59:	50                   	push   %eax
+ 8048b5a:	52                   	push   %edx
+ 8048b5b:	e8 78 04 00 00       	call   8048fd8 <read_six_numbers>
+ 8048b60:	83 c4 10             	add    $0x10,%esp
+ 8048b63:	83 7d e8 01          	cmpl   $0x1,-0x18(%ebp)
+ 8048b67:	74 05                	je     8048b6e <phase_2+0x26>
+ 8048b69:	e8 8e 09 00 00       	call   80494fc <explode_bomb>
+ 8048b6e:	bb 01 00 00 00       	mov    $0x1,%ebx
+ 8048b73:	8d 75 e8             	lea    -0x18(%ebp),%esi
+ 8048b76:	8d 43 01             	lea    0x1(%ebx),%eax
+ 8048b79:	0f af 44 9e fc       	imul   -0x4(%esi,%ebx,4),%eax
+ 8048b7e:	39 04 9e             	cmp    %eax,(%esi,%ebx,4)
+ 8048b81:	74 05                	je     8048b88 <phase_2+0x40>
+ 8048b83:	e8 74 09 00 00       	call   80494fc <explode_bomb>
+ 8048b88:	43                   	inc    %ebx
+ 8048b89:	83 fb 05             	cmp    $0x5,%ebx
+ 8048b8c:	7e e8                	jle    8048b76 <phase_2+0x2e>
+ 8048b8e:	8d 65 d8             	lea    -0x28(%ebp),%esp
+ 8048b91:	5b                   	pop    %ebx
+ 8048b92:	5e                   	pop    %esi
+ 8048b93:	89 ec                	mov    %ebp,%esp
+ 8048b95:	5d                   	pop    %ebp
+ 8048b96:	c3                   	ret
+ 8048b97:	90                   	nop
+```
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+void read_six_numbers(int *numbers);
+
+void explode_bomb() {
+    printf("Bomb exploded!\n");
+    exit(1);
+}
+
+void phase_2(int *input) {
+    int numbers[6];
+    int i;
+
+    read_six_numbers(numbers);
+
+    if (numbers[0] != 1) {
+        explode_bomb();
+    }
+
+    for (i = 1; i <= 5; i++) {
+        if (numbers[i] != i * numbers[0]) {
+            explode_bomb();
+        }
+    }
+}
+```
+
 ```
 
 08048fd8 <read_six_numbers>:
@@ -527,9 +594,6 @@ Congratulations! You've defused the bomb!
  8049015:	8d 76 00             	lea    0x0(%esi),%esi
 
 ```
-
-https://www.codeconvert.ai/assembly-to-c-converter
-
 ```
 #include <stdio.h>
 #include <stdlib.h>
