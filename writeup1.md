@@ -464,3 +464,5 @@ NO SPACE IN THE PASSWORD (password is case sensitive).
 Welcome this is my little bomb !!!! You have 6 stages with
 only one life good luck !! Have a nice day!
 ```
+
+`$ scp laurie@192.168.56.103:~/bomb .`
