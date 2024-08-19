@@ -862,22 +862,28 @@ So this function takes 6 numbers as input. If any of those numbers is larger tha
 
 Now let's see what these nodes are supposed to be.
 
-![image](https://github.com/user-attachments/assets/ea020c6c-162d-494b-bb24-1caa955c99ce)
+![image](https://github.com/user-attachments/assets/42363e3d-16fd-4904-b744-5415a8deb4c2)
 
-![image](https://github.com/user-attachments/assets/00ec97ba-c150-40bd-a6e8-d8bb2a8261dd)
 
+![image](https://github.com/user-attachments/assets/ee06ca25-2030-4529-8c89-5aefd316b3c8)
+
+They are double word values so we will interpert them as 16 bit integers
 so,
 
-`node6=B0=176`
+`node6=1B0=432`
 
 `node5=D4=212`
 
-`node4=E5=229`
+`node4=3E5=997`
 
-`node3=2D=45`
+`node3=12D=301`
 
-`node2=D5=213`
+`node2=2D5=725`
 
 `node1=FD=253`
 
+Each number in our array is turned into pointers to these. A linked list is formed.
+
 The final list needs to be in descending order or we explode.
+
+Then the final value should be `4 2 6 3 1 5`
