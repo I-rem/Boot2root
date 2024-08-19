@@ -404,7 +404,7 @@ There are 750 .pcap files and wireshark is unable to open them. When we read the
 
 `$ cat * | grep printf`
 
-![image](https://github.com/user-attachments/assets/a571e26d-c9b9-40fb-a729-a5b1dfecfb3c)
+![image](https://github.com/user-attachments/assets/0098b708-dd37-44ea-b8b9-9a24d5063d00)
 
 ![image](https://github.com/user-attachments/assets/1b6d13e6-e3f1-4a2a-9cca-8e5817413df2)
 
@@ -441,26 +441,11 @@ grep return $file
 
 ![image](https://github.com/user-attachments/assets/fc694006-c9d4-41d0-bd00-cb42c01d3aa7)
 
-```
-counter=1
-while [ $counter -le 750 ]; do
-  cat "$counter"  # Perform the action on the file
-  counter=$((counter + 1))  # Increment the counter
-done | grep return
-//file5 return 'I';
-//file37        return 'h';
-//file56        return 'e';
-//file115       return 'a';
-//file368       return 'r';
-//file521       return 't';
-//file736       return 'p';
-        return 'w';
-        return 'n';
-        return 'a';
-        return 'g';
-        return 'e';
-```
+`$ cat * | grep return`
 
-![image](https://github.com/user-attachments/assets/bdbf9d14-0d89-43f4-ac05-a7080d0a6f39)
+![image](https://github.com/user-attachments/assets/7668fe86-5a7c-4b38-adb5-2b75e64c605e)
+
+`Iheartpwnage`
+
 
 
