@@ -492,3 +492,58 @@ Curses, you've found the secret phase!
 But finding it and solving it are quite different...
 Congratulations! You've defused the bomb!
 ```
+
+`objdump bom > bomb.asm`
+
+```
+
+08048fd8 <read_six_numbers>:
+ 8048fd8:	55                   	push   %ebp
+ 8048fd9:	89 e5                	mov    %esp,%ebp
+ 8048fdb:	83 ec 08             	sub    $0x8,%esp
+ 8048fde:	8b 4d 08             	mov    0x8(%ebp),%ecx
+ 8048fe1:	8b 55 0c             	mov    0xc(%ebp),%edx
+ 8048fe4:	8d 42 14             	lea    0x14(%edx),%eax
+ 8048fe7:	50                   	push   %eax
+ 8048fe8:	8d 42 10             	lea    0x10(%edx),%eax
+ 8048feb:	50                   	push   %eax
+ 8048fec:	8d 42 0c             	lea    0xc(%edx),%eax
+ 8048fef:	50                   	push   %eax
+ 8048ff0:	8d 42 08             	lea    0x8(%edx),%eax
+ 8048ff3:	50                   	push   %eax
+ 8048ff4:	8d 42 04             	lea    0x4(%edx),%eax
+ 8048ff7:	50                   	push   %eax
+ 8048ff8:	52                   	push   %edx
+ 8048ff9:	68 1b 9b 04 08       	push   $0x8049b1b
+ 8048ffe:	51                   	push   %ecx
+ 8048fff:	e8 5c f8 ff ff       	call   8048860 <sscanf@plt>
+ 8049004:	83 c4 20             	add    $0x20,%esp
+ 8049007:	83 f8 05             	cmp    $0x5,%eax
+ 804900a:	7f 05                	jg     8049011 <read_six_numbers+0x39>
+ 804900c:	e8 eb 04 00 00       	call   80494fc <explode_bomb>
+ 8049011:	89 ec                	mov    %ebp,%esp
+ 8049013:	5d                   	pop    %ebp
+ 8049014:	c3                   	ret
+ 8049015:	8d 76 00             	lea    0x0(%esi),%esi
+
+```
+
+https://www.codeconvert.ai/assembly-to-c-converter
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+void explode_bomb();
+
+void read_six_numbers(int *numbers) {
+    int result;
+    result = sscanf((char *)numbers, "%d %d %d %d %d %d", 
+                    &numbers[0], &numbers[1], &numbers[2], 
+                    &numbers[3], &numbers[4], &numbers[5]);
+    
+    if (result <= 5) {
+        explode_bomb();
+    }
+}
+```
