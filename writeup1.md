@@ -630,3 +630,170 @@ We now know what kind of an input the program is expecting. We require 6 numbers
 [4] = 24 * 5 = 120
 
 [5] = 120 * 6 = 720
+
+The password for the phase 2 is `1 2 6 24 120 720`
+
+![image](https://github.com/user-attachments/assets/d5fb0605-b964-4ff1-9342-d02c74d928fb)
+
+Cool, time for the next phase.
+
+```
+int __cdecl phase_3(int a1)
+{
+  int result; // eax
+  char v2; // bl
+  int v3; // [esp+Ch] [ebp-Ch] BYREF
+  char v4; // [esp+13h] [ebp-5h] BYREF
+  int v5; // [esp+14h] [ebp-4h] BYREF
+
+  if ( sscanf(a1, "%d %c %d", &v3, &v4, &v5) <= 2 )
+    explode_bomb();
+  result = v3;
+  switch ( v3 )
+  {
+    case 0:
+      v2 = 113;
+      if ( v5 != 777 )
+        goto LABEL_19;
+      break;
+    case 1:
+      v2 = 98;
+      if ( v5 != 214 )
+        goto LABEL_19;
+      break;
+    case 2:
+      v2 = 98;
+      if ( v5 != 755 )
+        goto LABEL_19;
+      break;
+    case 3:
+      v2 = 107;
+      if ( v5 != 251 )
+        goto LABEL_19;
+      break;
+    case 4:
+      v2 = 111;
+      if ( v5 != 160 )
+        goto LABEL_19;
+      break;
+    case 5:
+      v2 = 116;
+      if ( v5 != 458 )
+        goto LABEL_19;
+      break;
+    case 6:
+      v2 = 118;
+      if ( v5 != 780 )
+        goto LABEL_19;
+      break;
+    case 7:
+      v2 = 98;
+      if ( v5 != 524 )
+LABEL_19:
+        result = explode_bomb();
+      break;
+    default:
+      v2 = 120;
+      result = explode_bomb();
+      break;
+  }
+  if ( v2 != v4 )
+    return explode_bomb();
+  return result;
+}
+```
+
+```
+int __cdecl phase_4(int a1)
+{
+  int result; // eax
+  int v2; // [esp+14h] [ebp-4h] BYREF
+
+  if ( sscanf(a1, "%d", &v2) != 1 || v2 <= 0 )
+    explode_bomb();
+  result = func4(v2);
+  if ( result != 55 )
+    return explode_bomb();
+  return result;
+}
+```
+
+```
+int __cdecl phase_5(int a1)
+{
+  int i; // edx
+  int result; // eax
+  char v3[8]; // [esp+10h] [ebp-8h] BYREF
+
+  if ( string_length(a1) != 6 )
+    explode_bomb();
+  for ( i = 0; i <= 5; ++i )
+    v3[i] = array_123[*(_BYTE *)(i + a1) & 0xF];
+  v3[6] = 0;
+  result = strings_not_equal(v3, "giants");
+  if ( result )
+    return explode_bomb();
+  return result;
+}
+```
+
+```
+int __cdecl phase_6(int a1)
+{
+  int i; // edi
+  int j; // ebx
+  int v3; // edi
+  _DWORD *v4; // ecx
+  _DWORD *v5; // esi
+  int k; // ebx
+  int v7; // esi
+  int m; // edi
+  int v9; // eax
+  int v10; // esi
+  int n; // edi
+  int result; // eax
+  int v13; // [esp+24h] [ebp-34h]
+  int v14[6]; // [esp+28h] [ebp-30h]
+  _DWORD v15[6]; // [esp+40h] [ebp-18h] BYREF
+
+  read_six_numbers(a1, v15);
+  for ( i = 0; i <= 5; ++i )
+  {
+    if ( (unsigned int)(v15[i] - 1) > 5 )
+      ((void (*)(void))explode_bomb)();
+    for ( j = i + 1; j <= 5; ++j )
+    {
+      if ( v15[i] == v15[j] )
+        ((void (*)(void))explode_bomb)();
+    }
+  }
+  v3 = 0;
+  v4 = v15;
+  do
+  {
+    v5 = &node1;
+    for ( k = 1; k < v15[v3]; ++k )
+      v5 = (_DWORD *)v5[2];
+    v14[v3++] = (int)v5;
+  }
+  while ( v3 <= 5 );
+  v7 = v14[0];
+  v13 = v14[0];
+  for ( m = 1; m <= 5; ++m )
+  {
+    v9 = v14[m];
+    *(_DWORD *)(v7 + 8) = v9;
+    v7 = v9;
+  }
+  *(_DWORD *)(v9 + 8) = 0;
+  v10 = v13;
+  for ( n = 0; n <= 4; ++n )
+  {
+    result = *(_DWORD *)v10;
+    if ( *(_DWORD *)v10 < **(_DWORD **)(v10 + 8) )
+      result = explode_bomb(v4);
+    v10 = *(_DWORD *)(v10 + 8);
+  }
+  return result;
+}
+```
