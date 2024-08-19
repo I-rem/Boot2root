@@ -864,6 +864,8 @@ Now let's see what these nodes are supposed to be.
 
 ![image](https://github.com/user-attachments/assets/ea020c6c-162d-494b-bb24-1caa955c99ce)
 
+![image](https://github.com/user-attachments/assets/00ec97ba-c150-40bd-a6e8-d8bb2a8261dd)
+
 so,
 
 `node6=B0=176`
