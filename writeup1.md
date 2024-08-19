@@ -457,3 +457,10 @@ o
 
 NO SPACE IN THE PASSWORD (password is case sensitive).
 ```
+
+![image](https://github.com/user-attachments/assets/e59da724-312e-493f-9006-a35e020929b9)
+
+```
+Welcome this is my little bomb !!!! You have 6 stages with
+only one life good luck !! Have a nice day!
+```
