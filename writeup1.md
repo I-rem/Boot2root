@@ -896,3 +896,13 @@ We have defused the bomb! We can login as thor with ssh now.
 
 Password: `Publicspeakingisveryeasy.126241207201b2149opekmq426315`
 
+Apparently this does not work. I might be overlooking something or there might be an error in the exercise, whatever is the case the only accepted password is `Publicspeakingisveryeasy.126241207201b2149opekmq426135`
+
+This issue was discussed in the 42 Network [forums](https://stackoverflowteams.com/c/42network/questions/664) before.
+
+![image](https://github.com/user-attachments/assets/ecc0d00a-9fcc-4266-bccb-02a554b25244)
+
+Anyways time to check out thor's home directory.
+
+![image](https://github.com/user-attachments/assets/fecac65b-a55c-4d4e-8ec3-31f980784102)
+
