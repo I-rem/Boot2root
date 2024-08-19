@@ -535,16 +535,15 @@ https://www.codeconvert.ai/assembly-to-c-converter
 
 ```
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdbool.h>
 
-void read_six_numbers(int *numbers);
+void read_six_numbers(int *array);
 
-void explode_bomb() {
-    printf("Bomb exploded!\n");
-    exit(1);
+void explode_bomb(void) {
+    printf("Boom! The bomb exploded.\n");
 }
 
-void phase_2(int *input) {
+void phase_2(int *array) {
     int numbers[6];
     int i;
 
@@ -552,11 +551,14 @@ void phase_2(int *input) {
 
     if (numbers[0] != 1) {
         explode_bomb();
+        return;
     }
 
-    for (i = 1; i <= 5; i++) {
-        if (numbers[i] != i * numbers[0]) {
+    for (i = 1; i < 6; i++) {
+        // Check if numbers[i] == i * numbers[i-1]
+        if (numbers[i] != i * numbers[i - 1]) {
             explode_bomb();
+            return;
         }
     }
 }
