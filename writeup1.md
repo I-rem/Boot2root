@@ -416,6 +416,8 @@ There are 750 .pcap files and wireshark is unable to open them. When we read the
 
 _______wnage
 
+![image](https://github.com/user-attachments/assets/4ec48f1f-2a15-46fa-86b9-9116ab1f978f)
+
 ```
 $ for file in *; do
   number=$(grep -oP '^//file\K\d+' "$file" | head -n 1)
@@ -423,29 +425,11 @@ $ for file in *; do
 done
 
 ```
-
-![image](https://github.com/user-attachments/assets/4ec48f1f-2a15-46fa-86b9-9116ab1f978f)
-
-```
-#!/bin/sh
-file=$1
-echo $file
-while ! grep -q "return" "$file" || [ "$file" = "750" ]; do
-        file=$(grep -oP '^//file\K\d+' $file)
-        echo $file
-done
-
-echo $file
-grep return $file
-```
-
-![image](https://github.com/user-attachments/assets/fc694006-c9d4-41d0-bd00-cb42c01d3aa7)
+![image](https://github.com/user-attachments/assets/23f20b0d-3cf4-48a3-a7b3-370779247a93)
 
 `$ cat * | grep return`
 
 ![image](https://github.com/user-attachments/assets/7668fe86-5a7c-4b38-adb5-2b75e64c605e)
 
 `Iheartpwnage`
-
-
 
