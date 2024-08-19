@@ -702,6 +702,15 @@ LABEL_19:
   return result;
 }
 ```
+We need to enter a number, a character and then another number. Baes on te first number entered there are several different cases.
+
+I went for case 0 so, v3 = 0 and v2 = 113 then v5 = 777 (otherwise we are rediretced to case LABEL_19 which is an automatic explosion), finally the last if statement checks wheter v2 is equal to v4 or not. Then, v4 = 113 (q in ascii table)
+
+Final input becomes: `0 q 777`
+
+![image](https://github.com/user-attachments/assets/c98139be-2fc5-4032-9e12-65a3dc8f2bb5)
+
+Time for the next phase.
 
 ```
 int __cdecl phase_4(int a1)
@@ -719,6 +728,18 @@ int __cdecl phase_4(int a1)
 ```
 
 ```
+int __cdecl func4(int a1)
+{
+  int v1; // esi
+
+  if ( a1 <= 1 )
+    return 1;
+  v1 = func4(a1 - 1);
+  return v1 + func4(a1 - 2);
+}
+```
+
+``
 int __cdecl phase_5(int a1)
 {
   int i; // edx
@@ -797,3 +818,4 @@ int __cdecl phase_6(int a1)
   return result;
 }
 ```
+
