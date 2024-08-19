@@ -702,7 +702,7 @@ LABEL_19:
   return result;
 }
 ```
-We need to enter a number, a character and then another number. Baes on te first number entered there are several different cases.
+We need to enter a number, a character and then another number. Based on the first number entered there are several different cases.
 
 I went for case 0 so, v3 = 0 and v2 = 113 then v5 = 777 (otherwise we are rediretced to case LABEL_19 which is an automatic explosion), finally the last if statement checks wheter v2 is equal to v4 or not. Then, v4 = 113 (q in ascii table)
 
@@ -738,6 +738,13 @@ int __cdecl func4(int a1)
   return v1 + func4(a1 - 2);
 }
 ```
+This seems to be a fibonacci sequence: 1, 2, 3, 5, 8, 13, 21, 34, 55
+
+`9`th element gives us the target number.
+
+![image](https://github.com/user-attachments/assets/15afeed9-2601-4a13-a906-9252dad89b5f)
+
+Phase 5,
 
 ``
 int __cdecl phase_5(int a1)
@@ -757,6 +764,7 @@ int __cdecl phase_5(int a1)
   return result;
 }
 ```
+Hey, "giants" makes another appearance! The result should be equal to giants but a set operations is performed on the string we pass which messes it up.
 
 ```
 int __cdecl phase_6(int a1)
