@@ -368,6 +368,8 @@ We only have access to the LOOKATME directory
 
 We get another set of credentials for the user lmezard: `lmezard:G!@M6f4Eatau{sF"` We already have lmezard's account for SquirrelMail and the forum. Attempting to login to phpMyAdmin was no use either(Which was expected as it was mentioned in the mails that lmezard should be using the root account from now on). 
 
+## fun
+
 Well, ssh port is open
 
 `$ ssh lmezard@192.168.56.103`
@@ -441,6 +443,10 @@ done
 
 ![image](https://github.com/user-attachments/assets/04ed4899-8016-4bae-80f8-e41b69966afa)
 
+## bomb
+
+Let's look around,
+
 ![image](https://github.com/user-attachments/assets/5d8f6816-63fe-410a-ace6-0724f887d93c)
 
 ```
@@ -457,6 +463,7 @@ o
 
 NO SPACE IN THE PASSWORD (password is case sensitive).
 ```
+Running the program results in another message to be printed:
 
 ![image](https://github.com/user-attachments/assets/e59da724-312e-493f-9006-a35e020929b9)
 
@@ -464,12 +471,17 @@ NO SPACE IN THE PASSWORD (password is case sensitive).
 Welcome this is my little bomb !!!! You have 6 stages with
 only one life good luck !! Have a nice day!
 ```
+We need to find the right keyword. After testing with various input values  I download the program into my machine to examine it further.
 
 `$ scp laurie@192.168.56.103:~/bomb .`
+
+First, I would like to try calling `strings` to see if I can simply find the password among the printable characters in the executable.
 
 `$ strings bomb`
 
 ![image](https://github.com/user-attachments/assets/6405eb3d-7d76-4e8a-a6c5-1c7f95bfb0a3)
+
+I note down the words that look promising:
 
 ```
 Public speaking is very easy.
@@ -492,6 +504,11 @@ Curses, you've found the secret phase!
 But finding it and solving it are quite different...
 Congratulations! You've defused the bomb!
 ```
+For the stage one `Public speaking is very easy.` works!
+
+![image](https://github.com/user-attachments/assets/87cde4f2-6dc9-48b0-9f4b-4f9f3c9e3646)
+
+Unfortunately giant or austinpowers do not work for the next stage and I can't find anything else among the strings. We will need to go a step further.
 
 `objdump bom > bomb.asm`
 
