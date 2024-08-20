@@ -906,3 +906,67 @@ Anyways time to check out thor's home directory.
 
 ![image](https://github.com/user-attachments/assets/fecac65b-a55c-4d4e-8ec3-31f980784102)
 
+`$ cat turtle` gives us more than a thousand lines of directions.
+
+![image](https://github.com/user-attachments/assets/563b8a4d-463b-4391-9bcb-d9fc8bfd02e5)
+
+I will sort the unique lines to make it easier to comprehend what's going on: $ cat turtle | sort -u
+
+![image](https://github.com/user-attachments/assets/925bdec9-996d-4d70-b8c4-a80b9fde8373)
+
+```
+Avance 100 spaces
+Avance 120 spaces
+Avance 1 spaces
+Avance 200 spaces
+Avance 210 spaces
+Avance 50 spaces
+Can you digest the message? :)
+Recule 100 spaces
+Recule 200 spaces
+Recule 210 spaces
+Tourne droite de 10 degrees
+Tourne droite de 120 degrees
+Tourne droite de 150 degrees
+Tourne droite de 1 degrees
+Tourne droite de 90 degrees
+Tourne gauche de 1 degrees
+Tourne gauche de 90 degrees
+```
+
+google translate ~
+
+```
+Move forward 100 spaces
+Move forward 120 spaces
+Move forward 1 space
+Move forward 200 spaces
+Move forward 210 spaces
+Move forward 50 spaces
+Can you digest the message? :)
+Move back 100 spaces
+Move back 200 spaces
+Move back 210 spaces
+Turn right 10 degrees
+Turn right 120 degrees
+Turn right 150 degrees
+Turn right 1 degree
+Turn right 90 degrees
+Turn left 1 degree
+Turn left 90 degrees
+```
+Appearantly [turtle](https://robertvandeneynde.be/parascolaire/turtle.en.html) is a somewhat famous python library. 
+
+Here is a little example of its usage.
+
+![image](https://github.com/user-attachments/assets/efd0e2db-be14-43f4-8e60-7d01a3c175a3)
+
+A cute little turtle draws stuff for us.
+
+`fd()` function to move forward.
+
+`fd(-number)` to move backwards
+
+`lt()` to turn left
+
+`rt()` to turn right
