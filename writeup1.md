@@ -1032,3 +1032,6 @@ We have a directory called mail and an exe called exploit_me. exploit me belongs
 
 ![image](https://github.com/user-attachments/assets/7582a775-bee3-4703-8703-17aa55b2b35c)
 
+![image](https://github.com/user-attachments/assets/39e10791-f73e-497a-862c-7f679a867e6a)
+
+If the destination string of a strcpy() is not large enough, then anything  might happen.   Overflowing fixed-length string buffers is a favorite cracker technique for taking complete control of the machine.
