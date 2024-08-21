@@ -955,7 +955,7 @@ Turn right 90 degrees
 Turn left 1 degree
 Turn left 90 degrees
 ```
-Appearantly [turtle](https://robertvandeneynde.be/parascolaire/turtle.en.html) is a somewhat famous python library. 
+Appearantly [turtle](https://robertvandeneynde.be/parascolaire/turtle.en.html) is a somewhat famous python module. 
 
 Here is a little example of its usage.
 
@@ -969,4 +969,7 @@ A cute little turtle draws stuff for us.
 
 `lt()` to turn left
 
-`rt()` to turn right
+`rt()` to turn right`
+
+”turtle” comes packed with the standard Python package and need not be installed externally. With the elp of a quick [tutorial](https://www.geeksforgeeks.org/turtle-programming-python/) we can write a python program that will read the given file and draw the message for us. Make sure to not name this program [turtle.py](https://python-forum.io/thread-149.html).
+
