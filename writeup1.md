@@ -1025,3 +1025,5 @@ Make sure to not name this program [turtle.py](https://python-forum.io/thread-14
 We have a directory called mail and an exe called exploit_me. exploit me belongs to root and has SUID bit set.
 
 ![image](https://github.com/user-attachments/assets/9d8f300c-850b-4cf0-8c8e-dafe172337e7)
+
+![image](https://github.com/user-attachments/assets/0bf5f585-2a3a-4ac3-927f-76df823296ea)
