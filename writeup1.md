@@ -1027,3 +1027,5 @@ We have a directory called mail and an exe called exploit_me. exploit me belongs
 ![image](https://github.com/user-attachments/assets/9d8f300c-850b-4cf0-8c8e-dafe172337e7)
 
 ![image](https://github.com/user-attachments/assets/0bf5f585-2a3a-4ac3-927f-76df823296ea)
+
+![image](https://github.com/user-attachments/assets/2fc36176-334c-493e-990f-8d89d704bbfd)
