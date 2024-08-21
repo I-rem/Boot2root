@@ -971,5 +971,44 @@ A cute little turtle draws stuff for us.
 
 `rt()` to turn right`
 
-”turtle” comes packed with the standard Python package and need not be installed externally. With the elp of a quick [tutorial](https://www.geeksforgeeks.org/turtle-programming-python/) we can write a python program that will read the given file and draw the message for us. Make sure to not name this program [turtle.py](https://python-forum.io/thread-149.html).
+”turtle” comes packed with the standard Python package and need not be installed externally. With the elp of a quick [tutorial](https://www.geeksforgeeks.org/turtle-programming-python/) we can write a python program that will read the given file and draw the message for us. 
+
+```
+import turtle
+from turtle import fd, lt, rt
+
+window = turtle.Screen()
+turtle.shape("turtle")
+
+t = turtle.Turtle()
+file = open("turtle")
+
+def move_turtle(direction, line):
+    match direction:
+        case "Avance":
+            fd(int(line[1]))
+            return ;
+        case "Recule":
+            fd(-int(line[1]))
+            return ;
+        case "Tourne":
+            if (line[1] == "droite"):
+                rt(int(line[3]))
+            else:
+                lt(int(line[3]))
+            return ;
+        case default:
+            return ;
+
+for line in file:
+    l = line.split()
+    if (l):
+        move_turtle(l[0], l)
+
+turtle.done()
+```
+
+Make sure to not name this program [turtle.py](https://python-forum.io/thread-149.html).
+
+![image](https://github.com/user-attachments/assets/eb97128d-b6d9-405c-a9c3-ee36b3dd3fff)
 
