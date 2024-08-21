@@ -2,6 +2,8 @@ writeup2.md
 
 https://github.com/safebuffer/PE-Linux/blob/master/PE.sh
 
+https://www.exploit-db.com/exploits/40839
+
 `zaz@BornToSecHackMe:~$ vim PE.sh`
 `zaz@BornToSecHackMe:~$ chmod 777 PE.sh`
 `zaz@BornToSecHackMe:~$ ./PE.sh`
