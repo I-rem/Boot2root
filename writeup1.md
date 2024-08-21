@@ -1035,3 +1035,11 @@ We have a directory called mail and an exe called exploit_me. exploit me belongs
 ![image](https://github.com/user-attachments/assets/39e10791-f73e-497a-862c-7f679a867e6a)
 
 If the destination string of a strcpy() is not large enough, then anything  might happen.   Overflowing fixed-length string buffers is a favorite cracker technique for taking complete control of the machine.
+
+Program uses strcpy, which doesn't check the length of the input, we might be able to overflow the buffer and overwrite the return address on the stack. 
+
+```
+$ ./exploit_me $(python -c 'print "A" * 1000')
+```
+
+![image](https://github.com/user-attachments/assets/ef2eb8d0-5ccf-450d-b63a-3a089300a57d)
