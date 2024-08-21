@@ -435,7 +435,7 @@ done
 
 `Iheartpwnage`
 
-`$ echo -n Iheartpwnage > pass`
+`$ echo -n Iheartpwnage > pass` Make sure to add the -n option to not include the traililng newline or your hash will be wrong.
 
 `$ sha256sum pass`
 
@@ -1011,4 +1011,14 @@ turtle.done()
 Make sure to not name this program [turtle.py](https://python-forum.io/thread-149.html).
 
 ![image](https://github.com/user-attachments/assets/eb97128d-b6d9-405c-a9c3-ee36b3dd3fff)
+
+`$ echo -n SLASH > slash`
+
+![image](https://github.com/user-attachments/assets/283f4ff0-5eb3-47b7-8827-def21b03c33d)
+
+`$ md5sum slash`
+
+`646da671ca01bb5d84dbb5fb2238dc8e`
+
+![image](https://github.com/user-attachments/assets/45d1b4d8-c5f0-4216-9525-78b2a14ca61b)
 
