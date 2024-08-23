@@ -1054,5 +1054,6 @@ $ ./exploit_me $(python -c 'print "A" * 1000')
 
 ![image](https://github.com/user-attachments/assets/ef2eb8d0-5ccf-450d-b63a-3a089300a57d)
 
+![image](https://github.com/user-attachments/assets/eafadc34-c65c-4f62-b735-cc572e25a740)
 
 https://www.exploit-db.com/papers/13147
