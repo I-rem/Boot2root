@@ -18,7 +18,7 @@ nmap - Network exploration tool and security / port scanner
 
 ![image](https://github.com/user-attachments/assets/9192dcd2-6b76-41f9-b98e-e91de935619f)
 
-```
+```console
 PORT    STATE SERVICE  VERSION
 21/tcp  open  ftp      vsftpd 2.0.8 or later
 22/tcp  open  ssh      OpenSSH 5.9p1 Debian 5ubuntu1.7 (Ubuntu Linux; protocol 2.0)
@@ -34,7 +34,7 @@ PORT    STATE SERVICE  VERSION
 
 `$ nikto -h http://192.168.56.103`
 
-```
+```console
 - Nikto v2.5.0
 ---------------------------------------------------------------------------
 + Target IP:          192.168.56.103
@@ -59,7 +59,7 @@ PORT    STATE SERVICE  VERSION
 # Directory Enumeration
 
 `$ dirb http://192.168.56.103`
-```
+```console
 -----------------
 DIRB v2.22    
 By The Dark Raver
@@ -98,7 +98,7 @@ Too many results, it will be hard to effectively go through it all but I will sa
 
 `$ dirb https://192.168.56.103/ -r`         
 
-```
+```console
 -----------------
 DIRB v2.22    
 By The Dark Raver
@@ -133,7 +133,8 @@ With the **non-recursive** option dirb will just list the first level directorie
 ## /forum
 
 `dirb https://192.168.56.103/forum`
-```
+
+```console
 ---- Scanning URL: https://192.168.56.103/forum/ ----
 + https://192.168.56.103/forum/backup (CODE:403|SIZE:295)                                 
 + https://192.168.56.103/forum/config (CODE:403|SIZE:295)                                 
@@ -149,6 +150,7 @@ With the **non-recursive** option dirb will just list the first level directorie
 ==> DIRECTORY: https://192.168.56.103/forum/update/
 
 ```
+
 ![image](https://github.com/user-attachments/assets/a3fb315d-23a3-4d81-8110-b9c7e3221582)
 
 ![image](https://github.com/user-attachments/assets/daf8c625-7a02-4013-ba44-c58a47ab1196)
@@ -170,7 +172,7 @@ With the **non-recursive** option dirb will just list the first level directorie
 
 `dirb https://192.168.56.103/webmail`
 
-```
+```console
 + https://192.168.56.103/webmail/class (CODE:403|SIZE:296)                                
 ==> DIRECTORY: https://192.168.56.103/webmail/config/                                     
 + https://192.168.56.103/webmail/functions (CODE:403|SIZE:300)                            
@@ -190,7 +192,7 @@ We can login with the previous credentials.
 
 ![image](https://github.com/user-attachments/assets/7889eec2-fc09-4af0-ac34-f88e129f5de3)
 
-```
+```console
 Subject:   	DB Access
 From:   	qudevide@mail.borntosec.net
 Date:   	Thu, October 8, 2015 11:25 pm
@@ -206,7 +208,7 @@ Best regards.
 ```
 ## /phpmyadmin
 
-```
+```console
 + https://192.168.56.103/phpmyadmin/favicon.ico (CODE:200|SIZE:18902)                     
 + https://192.168.56.103/phpmyadmin/index.php (CODE:200|SIZE:7540)                        
 ==> DIRECTORY: https://192.168.56.103/phpmyadmin/js/                                      
@@ -221,7 +223,7 @@ Best regards.
 
 ![image](https://github.com/user-attachments/assets/a2ad9a22-869f-4af9-9d0d-fd54e089b8b8)
 
-```
+```console
 MySQL
 
     Server: Localhost via UNIX socket
@@ -233,7 +235,7 @@ MySQL
 
 ```
 
-```
+```console
 Web server
 
     Apache/2.2.22 (Ubuntu)
@@ -241,7 +243,7 @@ Web server
     PHP extension: mysqli 
 ```
 
-```
+```console
 phpMyAdmin
 
     Version information: 3.4.10.1deb1
@@ -269,7 +271,7 @@ We can navigate to the source code from here:
 
 ![image](https://github.com/user-attachments/assets/24345c76-2b79-45c0-98e5-360cd8fff505)
 
-```
+```php
 function generate_pw_hash($pw) {
 	$salt = random_string(10, '0123456789abcdef');
 	$salted_hash = sha1($pw.$salt);
@@ -280,7 +282,7 @@ function generate_pw_hash($pw) {
 
 The hash is composed of a salted SHA-1 hash. In the light of this information I was still unable to crack the admin's password hash. So I decided to just generate my own hash. Here is a simple script:
 
-```
+```php
 <?php
 function generate_pw_hash($pw) {
     $salt = '5f4dcc3b5d';  // 10 random chars for salt
@@ -426,7 +428,7 @@ _______wnage
 
 ![image](https://github.com/user-attachments/assets/4ec48f1f-2a15-46fa-86b9-9116ab1f978f)
 
-```
+```sh
 $ for file in *; do
   number=$(grep -oP '^//file\K\d+' "$file" | head -n 1)
   [ -n "$number" ] && [ ! -e "$number" ] && mv "$file" "$number"
@@ -455,7 +457,7 @@ Let's look around,
 
 ![image](https://github.com/user-attachments/assets/5d8f6816-63fe-410a-ace6-0724f887d93c)
 
-```
+```console
 Diffuse this bomb!
 When you have all the password use it as "thor" user with ssh.
 
@@ -489,7 +491,7 @@ First, I would like to try calling `strings` to see if I can simply find the pas
 
 I note down the words that look promising:
 
-```
+```console
 Public speaking is very easy.
 %d %c %d
 giants
@@ -520,7 +522,7 @@ I disassemble the binary: `$ objdump bomb > bomb.asm`
 
 We can see the assembly code for various functions.
 
-```
+```assembly
 08048b48 <phase_2>:
  8048b48:	55                   	push   %ebp
  8048b49:	89 e5                	mov    %esp,%ebp
@@ -556,7 +558,7 @@ We can see the assembly code for various functions.
  8048b97:	90                   	nop
 ```
 
-```
+```assembly
 08048fd8 <read_six_numbers>:
  8048fd8:	55                   	push   %ebp
  8048fd9:	89 e5                	mov    %esp,%ebp
@@ -603,7 +605,7 @@ Then we can click on `F5` to generate pseudocode.
 
 ![image](https://github.com/user-attachments/assets/74ad43f9-fd22-4a0d-bb54-b713a502a5eb)
 
-```
+```C
 int __cdecl phase_2(int a1)
 {
   int i; // ebx
@@ -643,7 +645,7 @@ The password for the phase 2 is `1 2 6 24 120 720`
 
 Cool, time for the next phase.
 
-```
+```C
 int __cdecl phase_3(int a1)
 {
   int result; // eax
@@ -718,7 +720,7 @@ Final input becomes: `0 q 777`
 
 Time for the next phase.
 
-```
+```C
 int __cdecl phase_4(int a1)
 {
   int result; // eax
@@ -733,7 +735,7 @@ int __cdecl phase_4(int a1)
 }
 ```
 
-```
+```C
 int __cdecl func4(int a1)
 {
   int v1; // esi
@@ -752,7 +754,7 @@ This seems to be a fibonacci sequence: 1, 2, 3, 5, 8, 13, 21, 34, 55
 
 Phase 5,
 
-```
+```C
 int __cdecl phase_5(int a1)
 {
   int i; // edx
@@ -780,7 +782,7 @@ Every letter in our string gets remapped into one of the letters in array_123 vi
 
 We can write a small script to figure out how it works
 
-```
+```C
 #include <stdio.h>
 
 int main()
@@ -804,7 +806,7 @@ Hurray!
 
 Last phase,
 
-```
+```C
 int __cdecl phase_6(int a1)
 {
   int i; // edi
@@ -920,7 +922,7 @@ I will sort the unique lines to make it easier to comprehend what's going on: $ 
 
 ![image](https://github.com/user-attachments/assets/925bdec9-996d-4d70-b8c4-a80b9fde8373)
 
-```
+```console
 Avance 100 spaces
 Avance 120 spaces
 Avance 1 spaces
@@ -942,7 +944,7 @@ Tourne gauche de 90 degrees
 
 google translate ~
 
-```
+```console
 Move forward 100 spaces
 Move forward 120 spaces
 Move forward 1 space
@@ -979,7 +981,7 @@ A cute little turtle draws stuff for us.
 
 ”turtle” comes packed with the standard Python package and need not be installed externally. With the help of a quick [tutorial](https://www.geeksforgeeks.org/turtle-programming-python/) we can write a python program that will read the given file and draw the message for us. 
 
-```
+```python
 import turtle
 from turtle import fd, lt, rt
 
@@ -1048,7 +1050,7 @@ If the destination string of a strcpy() is not large enough, then anything  migh
 
 Program uses strcpy, which doesn't check the length of the input, we might be able to overflow the buffer and overwrite the return address on the stack. 
 
-```
+```sh
 $ ./exploit_me $(python -c 'print "A" * 1000')
 ```
 
