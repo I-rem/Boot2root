@@ -1079,3 +1079,8 @@ https://www.cs.usfca.edu/~ejung/courses/683/lectures/buffer.pdf
 https://defendtheweb.net/article/buffer-overflow-to-run-root-shell-full-tutorial
 
 https://www.youtube.com/watch?v=1S0aBV-Waeo
+
+https://0xrick.github.io/binary-exploitation/bof5/
+
+![image](https://github.com/user-attachments/assets/5675a248-ab8a-45f6-8e1e-3ab1a9310bd1)
+
