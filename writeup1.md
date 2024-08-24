@@ -1093,6 +1093,48 @@ https://www.ired.team/offensive-security/code-injection-process-injection/binary
 
 ![image](https://github.com/user-attachments/assets/cc09bacf-5d40-44ed-a3d9-1b956ffa5584)
 
+ the NX (No-eXecute) bit is enabled. With NX protection enabled, the stack cannot be executed. Even if you successfully overwrite the return address with a location on the stack, the shellcode placed there will not execute. :'D
+
+
+
+### Let's try something else
+
+Can we like write our own stdio.h?
+
+Of course we don't have write access to the actual library
+
+![image](https://github.com/user-attachments/assets/ef269f74-f061-44fe-a1a8-5de68ec39cad)
+
+However exploit_me is a dynamically linked executable, so the necessary libraries are linked at runtime.
+
+![image](https://github.com/user-attachments/assets/9b328555-e997-4956-b3ba-847669e40f96)
+
+So perhaps we can use `LD_PRELOAD` to do a Dynamic Library Injection?
+
+First let's write our own definition for one of the functions the program calls.
+
+```c
+#define _GNU_SOURCE
+#include <stdio.h>
+#include <stdlib.h>
+
+int puts(const char *str) {
+    system("sh");
+    return 0;
+}
+```
+Compile it into a shared library
+
+`gcc -shared -fPIC -o my_puts.so my_puts.c`
+
+Run the program with our library preloaded to override the puts function
+
+`LD_PRELOAD=./my_puts.so ./my_program`
+
+Unfortunately the LD_PRELOAD variable is ignored with setuid.
+
+#### Unorganized links
+
 https://www.exploit-db.com/papers/13147
 
 https://web.ecs.syr.edu/~wedu/seed/Book/book_sample_buffer.pdf
@@ -1103,7 +1145,4 @@ https://defendtheweb.net/article/buffer-overflow-to-run-root-shell-full-tutorial
 
 https://www.youtube.com/watch?v=1S0aBV-Waeo
 
-
-
 ![image](https://github.com/user-attachments/assets/5675a248-ab8a-45f6-8e1e-3ab1a9310bd1)
-
