@@ -1062,3 +1062,8 @@ $ ./exploit_me $(python -c 'print "A" * 1000')
 
 https://www.exploit-db.com/papers/13147
 
+https://web.ecs.syr.edu/~wedu/seed/Book/book_sample_buffer.pdf
+
+https://www.cs.usfca.edu/~ejung/courses/683/lectures/buffer.pdf
+
+https://defendtheweb.net/article/buffer-overflow-to-run-root-shell-full-tutorial
