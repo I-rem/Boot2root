@@ -1089,6 +1089,10 @@ Does not work
 
 https://www.ired.team/offensive-security/code-injection-process-injection/binary-exploitation/return-to-libc-ret2libc
 
+`$ dmesg | grep 'Execute Disable'`
+
+![image](https://github.com/user-attachments/assets/cc09bacf-5d40-44ed-a3d9-1b956ffa5584)
+
 https://www.exploit-db.com/papers/13147
 
 https://web.ecs.syr.edu/~wedu/seed/Book/book_sample_buffer.pdf
