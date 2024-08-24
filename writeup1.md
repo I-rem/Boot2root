@@ -1060,6 +1060,16 @@ $ ./exploit_me $(python -c 'print "A" * 1000')
 
 ![image](https://github.com/user-attachments/assets/ba6d6094-ffd3-41a9-971a-ae5d4e0f1d1b)
 
+![image](https://github.com/user-attachments/assets/482e4882-8268-4e15-8d87-e5efd55809c4)
+
+![image](https://github.com/user-attachments/assets/36a31e96-2095-4cb5-a370-fef0f209f93e)
+
+`0xbffff5d0`
+
+![image](https://github.com/user-attachments/assets/61a5d414-e859-4222-9213-9f19541d4017)
+
+`0xb7e40041`
+
 https://www.exploit-db.com/papers/13147
 
 https://web.ecs.syr.edu/~wedu/seed/Book/book_sample_buffer.pdf
@@ -1067,3 +1077,5 @@ https://web.ecs.syr.edu/~wedu/seed/Book/book_sample_buffer.pdf
 https://www.cs.usfca.edu/~ejung/courses/683/lectures/buffer.pdf
 
 https://defendtheweb.net/article/buffer-overflow-to-run-root-shell-full-tutorial
+
+https://www.youtube.com/watch?v=1S0aBV-Waeo
