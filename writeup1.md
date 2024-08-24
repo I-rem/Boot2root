@@ -1070,6 +1070,18 @@ $ ./exploit_me $(python -c 'print "A" * 1000')
 
 `0xb7e40041`
 
+The goal is to overwrite EIP with a new address that points to our shell code. This shell code will execute /bin/sh which will give us a root shell since this binary has SUID bit set.[see](https://0xrick.github.io/binary-exploitation/bof5/)
+
+![image](https://github.com/user-attachments/assets/3842e4a5-04de-4870-a447-102068c69731)
+
+`eip at 0xbffff6d0`
+
+![image](https://github.com/user-attachments/assets/676a96a8-3987-400a-83c6-72150ea9d1f6)
+
+`(gdb) p/d 0xbffff6d0 - 0xbffff660` 
+
+Buffer size = 112
+
 https://www.exploit-db.com/papers/13147
 
 https://web.ecs.syr.edu/~wedu/seed/Book/book_sample_buffer.pdf
@@ -1080,7 +1092,7 @@ https://defendtheweb.net/article/buffer-overflow-to-run-root-shell-full-tutorial
 
 https://www.youtube.com/watch?v=1S0aBV-Waeo
 
-https://0xrick.github.io/binary-exploitation/bof5/
+
 
 ![image](https://github.com/user-attachments/assets/5675a248-ab8a-45f6-8e1e-3ab1a9310bd1)
 
